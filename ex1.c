@@ -186,3 +186,14 @@ void bin2dec2(char *high, char *low, char *num_dec)
     }
     return;
 }
+void p2s(char *num, int n)
+{
+    int i;
+    for(i = 0;i < n;i++)
+    {
+        ssoma(num,num,num);
+        zeroleft(num);
+    }
+    return;
+}
+
