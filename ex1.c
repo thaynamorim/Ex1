@@ -48,6 +48,23 @@ void ulet(ullong *var, char *num)
     char *xpoint = xbin;
     int i = 0;
     var->l = 0;
+    while(i < (BUFFER/2) && *xpoint != '\0')
+    {
+        var->l += (*xpoint - '0') * po2(i);
+        ++xpoint;
+        i++;
+    }
+    var->h = 0;
+    i = 0;
+    while(i < (BUFFER/2) && *xpoint != '\0')
+    {
+        var->h += (*xpoint - '0') * po2(i);
+        ++xpoint;
+        i++;
+    }
+    return;
+}
+
 void dec2bin(char *numantes, char *numdepois)
 {
     char tempchar[BUFFER];
