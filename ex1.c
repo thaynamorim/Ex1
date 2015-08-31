@@ -141,4 +141,48 @@ void ssoma(char *ca, char *cb,char *c)
     return;
 }
 
-
+void bin2dec2(char *high, char *low, char *num_dec)
+{
+    int i = 0, j = 0;
+    while (*low != '\0')
+    {
+        j++;
+        ++low;
+    }
+    --low;
+    while(j>0)
+    {
+        char valor[BUFFER] = "1";
+        j--;
+        if (*low == '1')
+        {
+            p2s(valor,i);
+            ssoma(num_dec,valor,num_dec);
+            zeroleft(num_dec);
+        }
+        --low;
+        ++i;
+    }
+    j = 0;
+    i = BUFFER/2;
+    while (*high != '\0')
+    {
+        j++;
+        ++high;
+    }
+    --high;
+    while(j>0)
+    {
+        char valor[BUFFER] = "1";
+        j--;
+        if (*high == '1')
+        {
+            p2s(valor,i);
+            ssoma(num_dec,valor,num_dec);
+            zeroleft(num_dec);
+        }
+        --high;
+        ++i;
+    }
+    return;
+}
