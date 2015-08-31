@@ -94,7 +94,7 @@ void zeroleft(char *numero)
 void ulprint(ullong x)
 {
     char l[BUFFER], h[BUFFER], ndec[BUFFER] = "0";
-    dec2bin2(x.l,l);
+   dec2bin2(x.l,l);
     dec2bin2(x.h,h);
     bin2dec2(h,l,ndec);
     printf("%s",ndec);
