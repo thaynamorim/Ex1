@@ -100,4 +100,45 @@ void ulprint(ullong x)
     printf("%s",ndec);
     return;
 }
+void ssoma(char *ca, char *cb,char *c)
+{
+    unsigned i=0, val_prox=0, val_atual;
+    char xa[BUFFER], xb[BUFFER];
+    char *a = xa, *b = xb;
+    conca("0",ca,xa);
+    conca("0",cb,xb);
+    zeros(xa,xb);
+    while(*a != '\0')
+    {
+        ++a;
+        ++b;
+        ++c;
+        ++i;
+    }
+    *c = '\0';
+    --a;
+    --b;
+    --c;
+    while(i != 0)
+    {
+        val_atual=val_prox;
+        val_prox= 0;
+        if((*a-'0')+(*b-'0')>=10)
+        {
+
+            val_prox=1;
+            *c=((*a- '0')+(*b-'0') - 10 + val_atual) + '0';
+        }
+        else
+        {
+            *c=(*a-'0')+(*b-'0')+ val_atual+'0';
+        }
+        --a;
+        --b;
+        --c;
+        --i;
+    }
+    return;
+}
+
 
