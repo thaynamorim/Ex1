@@ -236,3 +236,79 @@ void dec2bin2(unsigned long dec, char *ebinn)
     *ebinn='\0';
     return;
 }
+
+int div2(char *numantes, char *numdepois)
+{
+    int prox_val = 0, val_atual;
+    while(*numantes != '\0')
+    {
+        val_atual = prox_val;
+        prox_val = 0;
+        if(*numantes%2)
+            prox_val = 5;
+        *numdepois = (*numantes - '0')/2 + val_atual + '0';
+        ++numantes;
+        ++numdepois;
+    }
+    *numdepois = '\0';
+    return (prox_val/5);
+}
+
+void zeros(char *a, char *b)
+{
+    unsigned i = 0, j = 0, k;
+    char stemp[BUFFER] = "";
+    while(*a != '\0')
+    {
+        i++;
+        ++a;
+    }
+    while(*b != '\0')
+    {
+        j++;
+        ++b;
+    }
+    if(i == j)
+        return;
+    if(i > j)
+    {
+        for(k=0;k<j;k++)
+            --b;
+        for(k=0;k<(i-j);k++)
+            stemp[k] = '0';
+        for(k=(i-j);k<i;k++)
+        {
+            stemp[k] = *b;
+            ++b;
+        }
+        for(k=0;k<j;k++)
+            --b;
+        for(k=0;k<i;k++)
+        {
+            *b = stemp[k];
+            ++b;
+        }
+        *b = '\0';
+    }
+    else
+    {
+        for(k=0;k<i;k++)
+            --a;
+        for(k=0;k<(j-i);k++)
+            stemp[k] = '0';
+        for(k=(j-i);k<j;k++)
+        {
+            stemp[k] = *a;
+            ++a;
+        }
+        for(k=0;k<i;k++)
+            --a;
+        for(k=0;k<j;k++)
+        {
+            *a = stemp[k];
+            ++a;
+        }
+        *a = '\0';
+    }
+}
+
