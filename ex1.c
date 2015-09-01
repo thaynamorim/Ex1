@@ -41,6 +41,13 @@ int main(void)
     return EXIT_SUCCESS;
 }
 
+/* --------------------------------------------------------------------------*/
+/**
+ * \a struct var recebe o valor de num
+ *
+ * \param var
+ * \param num
+ */
 void ulet(ullong *var, char *num)
 {
     char xbin[BUFFER];
@@ -65,6 +72,15 @@ void ulet(ullong *var, char *num)
     return;
 }
 
+/* --------------------------------------------------------------------------*/
+/**
+ * \transforma um string decimal em binário. O binário que sai da função tá ao contrário pra facilitar o uso da próxima função, visto que isso é uma função interna
+ * *numantes é variável de entrada
+ * *numdepois é saída
+ *
+ * \param numantes
+ * \param numdepois
+ */
 void dec2bin(char *numantes, char *numdepois)
 {
     char tempchar[BUFFER];
@@ -80,7 +96,14 @@ void dec2bin(char *numantes, char *numdepois)
     return;
 }
 
-void zeroleft(char *numero)
+/* --------------------------------------------------------------------------*/
+/**
+ * \pega número tipo "044" e tira um zero, mudando pra "44", número sem zero à esquerda é inalterado
+ * *numantes é variável de entrada/saída
+ *
+ * \param numero'
+ */
+void zeroleft(char *numero')
 {
     if(*numero == '0')
         while(*numero != '\0')
@@ -91,6 +114,13 @@ void zeroleft(char *numero)
     return;
 }
 
+/* --------------------------------------------------------------------------*/
+/**
+ * \imprime o ullong
+ * *a entrada
+ *
+ * \param x
+ */
 void ulprint(ullong x)
 {
     char l[BUFFER], h[BUFFER], ndec[BUFFER] = "0";
@@ -100,6 +130,17 @@ void ulprint(ullong x)
     printf("%s",ndec);
     return;
 }
+/* --------------------------------------------------------------------------*/
+/**
+ * \c = a + b [soma números que estão em formato de string]
+ * *a entrada
+ * *b entrada
+ * *c saída
+ *
+ * \param ca
+ * \param cb
+ * \param c
+ */
 void ssoma(char *ca, char *cb,char *c)
 {
     unsigned i=0, val_prox=0, val_atual;
@@ -141,6 +182,17 @@ void ssoma(char *ca, char *cb,char *c)
     return;
 }
 
+/* --------------------------------------------------------------------------*/
+/**
+ * \brief converte 2 strings binários em um número grande decimal
+ * *high entrada
+ * *low entrada
+ * *num_dec saída
+ *
+ * \param high
+ * \param low
+ * \param num_dec
+ */
 void bin2dec2(char *high, char *low, char *num_dec)
 {
     int i = 0, j = 0;
@@ -186,6 +238,16 @@ void bin2dec2(char *high, char *low, char *num_dec)
     }
     return;
 }
+
+/* --------------------------------------------------------------------------*/
+/**
+ * \2^i versão string da po2
+ * *n é entrada
+ * *num é saída
+ *
+ * \param num
+ * \param n
+ */
 void p2s(char *num, int n)
 {
     int i;
@@ -196,6 +258,17 @@ void p2s(char *num, int n)
     }
     return;
 }
+/* --------------------------------------------------------------------------*/
+/**
+ * \c = a + b [função que ruben pediu, soma dois struct ullong]
+ * *a é entrada
+ * *b é entrada
+ * *c é saída
+ *
+ * \param a
+ * \param b
+ * \param c
+ */
 void uadd(ullong *a, ullong *b, ullong *c)
 {
     ullong ltemp;
@@ -208,6 +281,15 @@ void uadd(ullong *a, ullong *b, ullong *c)
     return;
 }
 
+/* --------------------------------------------------------------------------*/
+/**
+ * \transforma NÚMERO decimal em STRING binário
+ * *dec entrada
+ * *ebinn saída
+ *
+ * \param dec
+ * \param ebinn
+ */
 void dec2bin2(unsigned long dec, char *ebinn)
 {
     char xbinn[BUFFER]="";
@@ -237,6 +319,18 @@ void dec2bin2(unsigned long dec, char *ebinn)
     return;
 }
 
+/* --------------------------------------------------------------------------*/
+/**
+ *\dividide *numantes por 2 e retorna *numdepois
+ *numantes é variável de entrada e saída
+ *numdepois é variável de saída
+ retorna 0 se o número for par e 1 se for ímpar
+ *
+ * \param numantes
+ * \param numdepois
+ *
+ * \return 
+ */
 int div2(char *numantes, char *numdepois)
 {
     int prox_val = 0, val_atual;
@@ -254,7 +348,16 @@ int div2(char *numantes, char *numdepois)
     return (prox_val/5);
 }
 
-void zeros(char *a, char *b)
+/* --------------------------------------------------------------------------*/
+/**
+ * \compara os dois strings e adiciona zero à esquerda do menor. Ex: a = "3" b = "12345" -> a = "00003" b = "12345"
+ * *a é entrada/saída
+ * *b é entrada/saída
+ *
+ * \param a
+ * \param b'
+ */
+void zeros(char *a, char *b')
 {
     unsigned i = 0, j = 0, k;
     char stemp[BUFFER] = "";
@@ -312,13 +415,34 @@ void zeros(char *a, char *b)
     }
 }
 
+/* --------------------------------------------------------------------------*/
+/**
+ * \i é variável de entrada
+ * retorna 2^i
+ *
+ * \param i
+ *
+ * \return 
+ */
 unsigned long po2(int i)
 {
     if(i<=0)
         return 1;
     return 2*po2(i-1);
 }
-void conca(char *a, char *b, char *ab)
+
+/* --------------------------------------------------------------------------*/
+/**
+ * \concatena a com b. Ex: a = "sanduiche" b = " de mortadela", ab = "sanduiche de mortadela"
+ * *a é entrada
+ * *b é entrada
+ * *ab é saída
+ *
+ * \param a
+ * \param b
+ * \param ab'
+ */
+void conca(char *a, char *b, char *ab')
 {
     while(*a != '\0')
     {
