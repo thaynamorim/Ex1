@@ -207,3 +207,32 @@ void uadd(ullong *a, ullong *b, ullong *c)
     c->h = ltemp.h;
     return;
 }
+
+void dec2bin2(unsigned long dec, char *ebinn)
+{
+    char xbinn[BUFFER]="";
+    char *binn=xbinn;
+    int rest,i=0;
+    unsigned long chico=dec;
+    while (chico!=0)
+    {
+        rest=0;
+        if(chico%2)
+            rest=1;
+        chico/=2;
+        *binn=rest +'0';
+        ++binn;
+        ++i;
+    }
+    *binn='\0';
+    --binn;
+    while(i!=0)
+    {
+        *ebinn=*binn;
+        i--;
+        ++ebinn;
+        --binn;
+    }
+    *ebinn='\0';
+    return;
+}
