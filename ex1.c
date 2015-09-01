@@ -318,3 +318,20 @@ unsigned long po2(int i)
         return 1;
     return 2*po2(i-1);
 }
+void conca(char *a, char *b, char *ab)
+{
+    while(*a != '\0')
+    {
+        *ab = *a;
+        ++a;
+        ++ab;
+    }
+    while(*b != '\0')
+    {
+        *ab = *b;
+        ++b;
+        ++ab;
+    }
+    *ab = '\0';
+    return;
+}
