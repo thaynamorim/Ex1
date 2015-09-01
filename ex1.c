@@ -312,3 +312,9 @@ void zeros(char *a, char *b)
     }
 }
 
+unsigned long po2(int i)
+{
+    if(i<=0)
+        return 1;
+    return 2*po2(i-1);
+}
