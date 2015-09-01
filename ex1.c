@@ -82,7 +82,7 @@ void dec2bin(char *numantes, char *numdepois)
 }
 
 
-void zeroleft(char *numero')
+void zeroleft(char *numero)
 {
     if(*numero == '0')
         while(*numero != '\0')
@@ -261,7 +261,7 @@ int div2(char *numantes, char *numdepois)
 }
 
 
-void zeros(char *a, char *b')
+void zeros(char *a, char *b)
 {
     unsigned i = 0, j = 0, k;
     char stemp[BUFFER] = "";
@@ -328,7 +328,7 @@ unsigned long po2(int i)
 }
 
 
-void conca(char *a, char *b, char *ab')
+void conca(char *a, char *b, char *ab)
 {
     while(*a != '\0')
     {
