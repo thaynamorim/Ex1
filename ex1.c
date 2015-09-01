@@ -94,7 +94,7 @@ void zeroleft(char *numero)
 void ulprint(ullong x)
 {
     char l[BUFFER], h[BUFFER], ndec[BUFFER] = "0";
-   dec2bin2(x.l,l);
+    dec2bin2(x.l,l);
     dec2bin2(x.h,h);
     bin2dec2(h,l,ndec);
     printf("%s",ndec);
@@ -196,4 +196,14 @@ void p2s(char *num, int n)
     }
     return;
 }
-
+void uadd(ullong *a, ullong *b, ullong *c)
+{
+    ullong ltemp;
+    ltemp.l = a->l + b->l;
+    ltemp.h = a->h + b->h;
+    if((ltemp.l < a->l) || (ltemp.l < b->l))
+        (ltemp.h)++;
+    c->l = ltemp.l;
+    c->h = ltemp.h;
+    return;
+}
